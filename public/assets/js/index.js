@@ -10,6 +10,7 @@ if (window.location.pathname === '/notes') {
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
+  deleteBtn = document.querySelectorAll('.delete-note');
 }
 
 // Show an element
@@ -81,10 +82,10 @@ const handleNoteSave = () => {
 const handleNoteDelete = (e) => {
   // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
-
+ console.log ('handleNoteDelete triggered.');
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
-
+ console.log(noteId)
   if (activeNote.id === noteId) {
     activeNote = {};
   }
@@ -178,6 +179,7 @@ if (window.location.pathname === '/notes') {
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
+  // deleteBtn.addEventListener('click', handleNoteDelete);
 }
 
 getAndRenderNotes();
