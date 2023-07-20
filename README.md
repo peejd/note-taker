@@ -1,4 +1,4 @@
-# SVG Logo Maker
+# Note Taker
 
 
 ## Description
